@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" placeholder="nhập số tiền" id="tien">
+    <select name="From" id="tiengoc">
+        <option value="VND">VNĐ</option>
+        <option value="USD">USD</option>
+        <option value="EURO">EURO</option>
+    </select>
+    <select name="From" id="tiendoi">
+        <option value="VND">VNĐ</option>
+        <option value="USD">USD</option>
+        <option value="EURO">EURO</option>
+    </select>
+    <button onclick="chuyendoi()">Convert</button>
+    <h3>Kết quả là:</h3>
+    <div id="ketqua"></div>
+</body>
+</html>
+<script>
+    function chuyendoi(){
+        let money=document.getElementById('tien').value;
+        let moneyin=document.getElementById('tiengoc').value;
+        let moneyout=document.getElementById('tiendoi').value;
+        if (moneyin=="VND" && moneyout=="USD"){
+            let money2=Number(money)/Number(22735);
+            document.getElementById('ketqua').innerHTML=money2;
+        }
+        if (moneyin=="USD" && moneyout=="VND"){
+            let money2=Number(money)*Number(22735);
+            document.getElementById('ketqua').innerHTML=money2;
+        }
+        if (moneyin=="VND" && moneyout=="EURO"){
+            let money2=Number(money)/Number(25450);
+            document.getElementById('ketqua').innerHTML=money2;
+        }
+        if (moneyin=="EURO" && moneyout=="VND"){
+            let money2=Number(money)*Number(25450);
+            document.getElementById('ketqua').innerHTML=money2;
+        }
+        if (moneyin=="EURO" && moneyout=="USD"){
+            let money1=Number(money)*Number(25450);
+            let money2=Number(money1)/Number(22735);
+            document.getElementById('ketqua').innerHTML=money2;
+        }
+        if (moneyin=="USD" && moneyout=="EURO"){
+            let money1=Number(money)*Number(22735);
+            let money2=Number(money1)/Number(25450);
+            document.getElementById('ketqua').innerHTML=money2;
+        }   
+    }
+</script>
